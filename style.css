@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --corner-radius: 30px;
+  --card-transition: 1s;
+}
+
+html {
+  overflow: hidden;
+}
+
+.center {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.flex-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  font-size: 40px;
+  font-weight: 900;
+  color: black;
+  text-align: center;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+
+.winner.active {
+  opacity: 1;
+  display: block;
+}
+
+.player {
+  background: linear-gradient(140deg, #961a29, #ee3640 57.0107%);
+  opacity: 1 !important;
+}
+
+.reader {
+  background: linear-gradient(140deg, #055b8b, #328ccb 57.0107%);
+  opacity: 1 !important;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #ececec;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  color: #666666;
+}
+
+.background {
+  transition: all 0.8s ease-in-out, width 0s;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  opacity: 0;
+}
+
+.btn-bar {
+  position: absolute;
+  height: 54px;
+  width: 100%;
+  margin-bottom: 50px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-bar .main-btn {
+  height: 54px;
+  width: 170px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(40deg, #ee3640, #961a29);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.info {
+  font-size: 18px;
+  margin: 0 auto;
+  padding-top: 5.2vh;
+  opacity: 0;
+  transition: 0.8s opacity ease-in-out;
+  display: none;
+}
+
+.info.active {
+  display: flex;
+  opacity: 1;
+}
+
+.line2 {
+  font-size: 60px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.user-list-wrapper {
+  width: 100%;
+  height: 75.2%;
+  position: absolute;
+  bottom: -100%;
+  border-radius: var(--corner-radius) var(--corner-radius) 0px 0px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  justify-content: flex-start;
+  transition: var(--card-transition) bottom ease-in-out;
+  display: none !important;
+}
+
+.user-list-wrapper.active {
+  display: flex !important;
+  bottom: 0;
+}
+
+.user-list {
+  flex-wrap: wrap;
+  height: 67%;
+  width: 83.2%;
+  align-items: flex-start;
+  margin: 8.4% 8.4% 0;
+  gap: 28px;
+  overflow-y: scroll;
+}
+
+.user-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.user-list {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 19.14vw;
+}
+
+.user-name {
+  display: flex;
+  text-wrap: wrap;
+  max-width: 100%;
+  text-align: center;
+  padding-top: 5px;
+  font-weight: 400;
+}
+
+.user-icon-wrapper {
+  width: 19.14vw;
+  height: 19.14vw;
+  border-radius: 50%;
+  overflow: hidden;
+  max-width: 220px;
+  max-height: 220px;
+}
+
+.user-icon {
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.tutorial {
+  width: 100%;
+  height: 95%;
+  position: absolute;
+  bottom: -100%;
+  border-radius: var(--corner-radius) var(--corner-radius) 0px 0px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  justify-content: flex-start;
+  font-family: "Montserrat", sans-serif;
+  transition: var(--card-transition) bottom ease-in-out;
+}
+
+.tutorial.active {
+  bottom: 0;
+}
+
+.tut-inner {
+  margin: 8.4% 8.4% 0;
+}
+.tut-head {
+  font-size: 26px;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tut-text {
+  text-align: center;
+  font-size: 20px;
+}
+
+.player-hand {
+  width: 100%;
+  height: 75.2%;
+  position: absolute;
+  bottom: -100%;
+  border-radius: var(--corner-radius) var(--corner-radius) 0px 0px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  justify-content: flex-start;
+  transition: 1.3s bottom ease-in-out;
+}
+
+.player-hand.active {
+  bottom: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+}
+
+.reader-hand {
+  width: 100%;
+  height: 75.2%;
+  position: absolute;
+  bottom: -100%;
+  border-radius: var(--corner-radius) var(--corner-radius) 0px 0px;
+  background-color: aliceblue;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  justify-content: flex-start;
+  transition: 1.3s bottom ease-in-out;
+}
+
+.reader-hand.active {
+  bottom: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+}
+
+.card-select-text {
+  /* margin-top: 7.1%; */
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 1000;
+  color: #666666;
+}
+
+.cards {
+  width: fit-content;
+  padding-left: 20%;
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+}
+
+.card {
+  width: 230px;
+  height: 350px;
+  max-height: 45.96vh;
+  background: linear-gradient(-140deg, #961a29, #ee3640 57.0107%);
+  border-radius: var(--corner-radius);
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+  margin-right: 30px;
+}
+
+.card-inner {
+  padding: 8%;
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+  text-wrap: wrap;
+}
+
+.card.selected {
+  width: 215px;
+  height: 335px;
+  border: 4px solid #328ccb;
+}
+
+.player-hand .main-btn {
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.player-hand .main-btn.active {
+  opacity: 1;
+}
+
+.reader-hand .card {
+  background: linear-gradient(140deg, #055b8b, #328ccb 57.0107%);
+}
+.reader-hand .main-btn {
+  background: linear-gradient(140deg, #055b8b, #328ccb 57.0107%);
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.reader-hand .main-btn.active {
+  opacity: 1;
+}
